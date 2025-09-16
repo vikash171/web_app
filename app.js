@@ -1,27 +1,20 @@
 const express = require("express");
-const path = require("path");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const path = require("path");
 
-// EJS setup
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public"))); // ✅ serves script.js, style.css, etc.
 
-// Static files
-app.use(express.static(path.join(__dirname, "public")));
-
-// Routes
 app.get("/", (req, res) => {
-  res.render("index", { title: "Offline Games App gdv gtfgggggggggggg" });
+  res.render("index");
 });
 
-// Example API
-app.get("/api/hello", (req, res) => {
-  res.json({ message: "Hello from server!  good sagdfaqwdr" });
+app.get("/photos", (req, res) => {
+  res.render("photos");
 });
 
+const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`✅ Server running at http://localhost:${PORT}`);
+  console.log(`Server running at http://localhost:${PORT}`);
 });
-
-
