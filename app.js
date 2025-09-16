@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.get("/", (req, res) => {
-  res.render("index", { title: "Offline Games App" });
+  res.render("index", { title: "Offline Games App gdv gtfgggggggggggg" });
 });
 
 // Example API
@@ -23,4 +23,5 @@ app.get("/api/hello", (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ Server running at http://localhost:${PORT}`);
 });
+
 
