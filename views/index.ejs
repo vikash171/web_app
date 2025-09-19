@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Digital School Ecosystem</title>
-<link rel="stylesheet" href="/style.css">
-  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- PWA Manifest + Theme -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0d6efd">
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -31,18 +36,19 @@
         <p>Earn points, badges, and compete on leaderboards to make learning fun and rewarding.</p>
       </div>
 
-     <a href="/photos" class="card">
+      <div class="card">
         <div class="icon"><i class="fa-solid fa-image"></i></div>
         <h3>Photos</h3>
         <p>Store, organize, and access your digital photos anytime with secure cloud storage.</p>
-      </a>
+      </div>
 
-     <div class="card">
+      <div class="card">
         <div class="icon"><i class="fa-solid fa-download"></i></div>
         <h3>Download</h3>
         <p>Download important files, resources, and study materials with just one click.</p>
-     </div>
-
+        <!-- ✅ Download button -->
+        <a href="/download.jpeg" download class="download-btn">⬇️ Download File</a>
+      </div>
 
       <div class="card">
         <div class="icon"><i class="fa-solid fa-flask"></i></div>
@@ -52,6 +58,14 @@
 
     </div>
   </section>
+
+  <!-- ✅ Service Worker Register -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js")
+        .then(() => console.log("✅ Service Worker Registered"))
+        .catch(err => console.log("❌ SW failed:", err));
+    }
+  </script>
 </body>
 </html>
-
